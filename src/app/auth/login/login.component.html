@@ -1,3 +1,15 @@
-<p>
-  login works!
-</p>
+<section>
+    <form #f="ngForm" (ngSubmit)="onSubmit(f)">
+      <mat-form-field>
+        <input matInput placeholder="Ваша Email-адреса:" type="email" ngModel name="email" email required>
+        <mat-error *ngIf="f.value?.email">Некоректна Email-адреса</mat-error>
+      </mat-form-field>
+      <mat-form-field>
+        <input matInput placeholder="Ваш пароль:" type="password" ngModel name="password" minlength="6" required
+          #pwInput="ngModel">
+          <mat-error *ngIf="f.value?.password">Некоректий пароль</mat-error>
+      </mat-form-field>
+
+      <button type="submit" mat-raised-button color="primary" [disabled]="f.invalid">Submit</button>
+    </form>
+  </section>
