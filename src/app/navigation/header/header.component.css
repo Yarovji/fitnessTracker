@@ -1,0 +1,39 @@
+a {
+  text-decoration: none;
+  color: white;
+  margin: 5px;
+}
+
+a:hover,
+a:active {
+  color: lightgray;
+}
+
+ul {
+  display: flex;
+  list-style: none;
+  /* padding: 0;
+  margin: 0; */
+}
+
+@media screen and (max-width: 599px) {
+  ul {
+    display: none;
+  }
+}
+
+@media screen and (min-width: 599px) {
+  .burgerMenu {
+    display: none;
+  }
+}
+
+.navLink {
+  width: 100%;
+  display: flex;
+  justify-content: flex-end;
+}
+
+#logout {
+  cursor: pointer;
+}
