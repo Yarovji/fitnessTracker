@@ -7,21 +7,21 @@
       </button>
     </div>
     <div>
-      <a routerLink="/">LOGO</a>
+      <a routerLink="/">MADE BY VJI</a>
     </div>
     <div class="navLink">
       <ul>
         <li *ngIf="!isAuth">
-          <a routerLink="/signup">Signup</a>
+          <a routerLink="/signup">Реєстрація</a>
         </li>
         <li *ngIf="!isAuth">
-          <a routerLink="/login">Login</a>
+          <a routerLink="/login">Вхід</a>
         </li>
         <li *ngIf="isAuth">
-          <a routerLink="/training">Training</a>
+          <a routerLink="/training">Тренування</a>
         </li>
         <li *ngIf="isAuth">
-          <a id="logout" (click)="onLogout()">Logout</a>
+          <a id="logout" (click)="onLogout()">Вихід</a>
         </li>
       </ul>
     </div>
