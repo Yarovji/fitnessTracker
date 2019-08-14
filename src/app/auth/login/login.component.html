@@ -11,6 +11,7 @@
           <mat-error>Некоректий пароль</mat-error>
       </mat-form-field>
 
-      <button type="submit" mat-raised-button color="primary" [disabled]="loginForm.invalid">Увійти</button>
+      <button *ngIf="!isLoading" type="submit" mat-raised-button color="primary" [disabled]="loginForm.invalid">Увійти</button>
+      <mat-spinner *ngIf="isLoading"></mat-spinner>
     </form>
   </section>

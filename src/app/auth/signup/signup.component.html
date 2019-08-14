@@ -15,6 +15,7 @@
       <mat-datepicker #picker></mat-datepicker>
     </mat-form-field>
     <mat-checkbox ngModel required name="agree" color="primary">Я погоджуюсь тренуватися</mat-checkbox>
-    <button type="submit" mat-raised-button color="primary" [disabled]="f.invalid">Зареєструватися</button>
+    <button *ngIf="!isLoading" type="submit" mat-raised-button color="primary" [disabled]="f.invalid">Зареєструватися</button>
+    <mat-spinner *ngIf="isLoading"></mat-spinner>
   </form>
 </section>

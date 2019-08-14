@@ -5,6 +5,7 @@ import { AngularFirestore } from '@angular/fire/firestore';
 import { map } from 'rxjs/operators';
 import { Injectable } from '@angular/core';
 import { Subscription } from 'rxjs';
+import { UIService } from '../shared/ui.service';
 
 @Injectable()
 export class TrainingService {
@@ -16,7 +17,7 @@ export class TrainingService {
   private exercises: Exercise[] = [];
   private fbSubs: Subscription[] = [];
 
-  constructor(private db: AngularFirestore) {}
+  constructor(private db: AngularFirestore, private uiService: UIService) {}
 
   fethAvailableExercises() {
     this.fbSubs.push(this.db
@@ -36,6 +37,10 @@ export class TrainingService {
       ).subscribe((exercise: Exercise) => {
         this.availableExercises = exercise;
         this.exercisesChanged.next([...this.availableExercises]);
+      }, error => {
+        this.uiService.loadingStateChanged.next(false);
+        this.uiService.showSnackbar('Помилка, спробуйте пізніше', null, 3000);
+        this.exercisesChanged.next(null);
       }));
   }
 
