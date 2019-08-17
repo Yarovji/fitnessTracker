@@ -11,16 +11,16 @@
     </div>
     <div class="navLink">
       <ul>
-        <li *ngIf="!isAuth">
+        <li *ngIf="!(isAuth$ | async)">
           <a routerLink="/signup">Реєстрація</a>
         </li>
-        <li *ngIf="!isAuth">
+        <li *ngIf="!(isAuth$ | async)">
           <a routerLink="/login">Вхід</a>
         </li>
-        <li *ngIf="isAuth">
+        <li *ngIf="isAuth$ | async">
           <a routerLink="/training">Тренування</a>
         </li>
-        <li *ngIf="isAuth">
+        <li *ngIf="isAuth$ | async">
           <a id="logout" (click)="onLogout()">Вихід</a>
         </li>
       </ul>
